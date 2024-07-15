@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyMovieList</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container flexbox">
+        <div class="main-column flexbox">
+            
+            <header class="flexbox">
+                <h1>MyMovieList</h1>
+                <h2>MyMovieList is a movie database searcher and organizer. Type the title of the movie you want to look for below and add it to your list!</h2>
+                <small>The title field is required. Movies titles must be the exact title of the movie, including any special characters (e.g. "Amélie" not "Amelie", "Dune: Part Two" not "Dune 2" or "Dune Part Two").</small>
+            </header>
+    
+            <section class="form-response-section">
+
+                <div class="search-form flexbox">
+                    <form id="search-by-title-form">
+                        <label for="t">Title:</label>
+                        <input id="t" class="input-small" type="text">
+
+                        <label for="y">Year:</label>
+                        <input id="y" class="input-small" type="text">
+
+                        <button id="search-by-title-button" type="submit">Search</button>
+                        <button id="search-by-title-reset" type="button" onclick="resetForm()">Reset</button>
+                    </form>
+                </div>
+
+                <span id="search-by-title-error"></span>
+
+                <div id="search-by-title-response">
+                    <img id="response-poster" src="" alt="Poster">
+                    <div class="response-text flexbox">
+                        <div class="response-title-box">
+                            <h2 id="response-title"></h2>
+                            <p id="response-year"></p>
+                            <p id="response-plot"></p>
+                        </div>
+
+                        <div class="response-details flexbox">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Stars:</td>
+                                        <td><span id="response-actors"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Director:</td>
+                                        <td><span id="response-director"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Writers:</td>
+                                        <td><span id="response-writer"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Genre:</td>
+                                        <td><span id="response-genre"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rating:</td>
+                                        <td><span id="response-rated"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Runtime:</td>
+                                        <td><span id="response-runtime"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Language:</td>
+                                        <td><span id="response-language"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Country:</td>
+                                        <td><span id="response-country"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Type:</td>
+                                        <td><span id="response-type"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <button id="add-to-list-expand" type="button" onclick="addToListExpand()">Add to list?</button>
+                        <span id="add-to-list-confirm">Title successfully added to list!</span>
+                        
+                        <div id="add-to-list-details">
+                            <div id="add-to-list-options" class="flexbox">
+                                <label for="entry-status">Status:</label>
+                                <select name="entry-status" id="entry-status">
+                                    <option></option>
+                                    <option value="completed">Completed</option>
+                                    <option value="plan-to-watch">Plan to watch</option>
+                                    <option value="dropped">Dropped</option>
+                                    <option value="on-hold">On hold</option>
+                                </select>
+
+                                <label for="date-completed">Date completed:</label>
+                                <input type="date" id="date-completed">
+
+                                <label for="your-score">Your score:</label>
+                                <select name="your-score" id="your-score">
+                                    <option></option>
+                                    <option value="10">10</option>
+                                    <option value="9">9</option>
+                                    <option value="8">8</option>
+                                    <option value="7">7</option>
+                                    <option value="6">6</option>
+                                    <option value="5">5</option>
+                                    <option value="4">4</option>
+                                    <option value="3">3</option>
+                                    <option value="2">2</option>
+                                    <option value="1">1</option>
+                                </select>
+                            </div>
+                            <button id="add-to-list-btn" type="button" onclick="addToList()">Submit</button>
+                            <span id="add-to-list-error">This title is already in your list!</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <table id="movie-list">
+                    <tbody>
+                        <tr>
+                            <th id="list-title">Title</th>
+                            <th id="list-year">Year</th>
+                            <th id="list-type">Type</th>
+                            <th id="list-status">Status</th>
+                            <th id="list-date">Date Completed</th>
+                            <th id="list-score">Score</th>
+                            <th id="list-actions">Actions</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
